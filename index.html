@@ -10,11 +10,11 @@
 body{margin:0;font-family:Arial, sans-serif;background:#f5f5f5}
 header{background:#d32f2f;color:white;padding:12px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 
-/* Hero Section - Updated for Indian Feel */
+/* Hero Section - UPDATED TO HILL STATION BACKGROUND */
 .hero{
-/* Image of an Indian Road Trip/Highway context */
-background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1617201835748-0d17d120a175?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
-height:240px;
+/* Image: Misty Tea Gardens/Hill Station (Ooty/Munnar style) */
+background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596005554384-d293674c91d7?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+height:260px;
 position:relative;
 color:white;
 display:flex;
@@ -23,16 +23,29 @@ justify-content:center;
 text-align:center;
 }
 
-.heroContent h2{margin:0 0 5px 0;font-size:24px;}
-.heroContent p{margin:5px 0 15px 0;font-size:14px;opacity:0.9}
+/* Hero Content Styling */
+.heroContent h1{
+margin:0 0 5px 0;
+font-size:28px;
+text-transform:uppercase;
+letter-spacing:1px;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+.heroContent p{
+margin:5px 0 20px 0;
+font-size:16px;
+color:#f1f1f1;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
 .heroContent a{
 background:#fbc02d;
 color:black;
-padding:8px 16px;
+padding:10px 20px;
 text-decoration:none;
-border-radius:20px;
+border-radius:25px;
 font-weight:bold;
 display:inline-block;
+box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 /* Navigation */
@@ -78,12 +91,12 @@ h3{margin-top:0;color:#333}
 
 <body>
 
-<header><b>Reliable Rides Tours & Cab</b></header>
+<header><b>Reliable Rides</b></header>
 
 <div class="hero">
 <div class="heroContent">
-<h2>Taxi Service in Coimbatore</h2>
-<p>Safe • On-Time • Comfortable</p>
+<h1>Reliable Rides<br>Tours & Cabs</h1>
+<p>Taxi Service in Coimbatore • Safe • On-Time</p>
 <a href="tel:9043743777">📞 Call 9043743777</a>
 </div>
 </div>
@@ -192,13 +205,14 @@ RS Puram, Coimbatore – 641002<br>
 </section>
 </div>
 
-<div style="height:60px"></div> <div class="float">
+<div style="height:60px"></div>
+
+<div class="float">
 <a class="call" href="tel:9043743777">📞 Call Now</a>
 <a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
 </div>
 
 <script>
-// Tab Switching Logic
 function show(id){
 document.getElementById('home').style.display='none';
 document.getElementById('spots').style.display='none';
@@ -207,20 +221,17 @@ document.getElementById(id).style.display='block';
 window.scrollTo(0,0);
 }
 
-// Fare Estimation Logic
 function estimate(){
 let km = parseFloat(document.getElementById("km").value);
 if(!km){
 document.getElementById("fare").innerHTML = "Please enter valid KM";
 return;
 }
-// Logic: 25 per km approx calculation for estimation
 let f = Math.round(km * 25); 
-if(f < 150) f = 150; // Minimum fare logic
+if(f < 150) f = 150; 
 document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
 }
 
-// WhatsApp Sending Logic
 function sendWA(){
 let n = document.getElementById("name").value;
 let p = document.getElementById("phone").value;
