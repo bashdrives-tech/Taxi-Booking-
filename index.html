@@ -1,143 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reliable Rides Tours & Cab – Coimbatore</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reliable Rides Tours & Cab</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5}
+header{background:#d32f2f;color:white;padding:12px;display:flex;justify-content:space-between;align-items:center}
+nav button{border:1px solid #d32f2f;background:white;color:#d32f2f;padding:6px 12px;border-radius:20px;margin:3px}
+section{padding:15px}
+.card{background:white;padding:15px;margin:10px 0;border-radius:10px}
+input,textarea{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:6px}
+.btn{background:#d32f2f;color:white;padding:12px;border:none;width:100%;border-radius:6px}
+.whatsapp{background:#25d366}
+.float{position:fixed;bottom:0;width:100%;display:flex}
+.float a{flex:1;text-align:center;padding:15px;color:white;text-decoration:none}
+.call{background:#fbc02d;color:black}
+.wa{background:#25d366}
+img{width:100%;border-radius:10px}
+</style>
 </head>
 
-<body class="bg-gray-100">
+<body>
 
-<!-- HEADER -->
-<div class="bg-red-600 text-white p-4 flex justify-between">
-<div>
-<b>Reliable Rides Tours & Cab</b><br>
-<span class="text-xs">Taxi Service in Coimbatore</span>
-</div>
-<button onclick="menu.classList.toggle('hidden')">⋮</button>
-</div>
+<header>
+<b>Reliable Rides Tours & Cab</b>
+</header>
 
-<!-- MENU -->
-<div id="menu" class="hidden bg-white shadow p-3 text-sm">
-<p onclick="show('home')">Home</p>
-<p onclick="show('tour')">Tourist Spots</p>
-<p onclick="show('fare')">Fares</p>
-<p onclick="show('about')">About Us</p>
-<p onclick="show('privacy')">Privacy Policy</p>
-<a href="https://maps.google.com/?q=286 DB Road RS Puram Coimbatore" target="_blank">Google Maps</a>
-</div>
+<section style="background:#b71c1c;color:white">
+<h2>Taxi Service in Coimbatore</h2>
+<p>Safe • On-Time • Comfortable</p>
+<a href="tel:9043743777" style="color:white">📞 9043743777</a>
+</section>
 
-<!-- HOME -->
+<section>
+<nav>
+<button onclick="show('home')">Coimbatore</button>
+<button onclick="show('spots')">Tourist Spots</button>
+<button onclick="show('fares')">Fares</button>
+</nav>
+</section>
+
 <div id="home">
+<section>
 
-<div class="bg-white p-4 text-center">
-<h1 class="text-xl font-bold">Taxi in Coimbatore</h1>
-<p>Call : 9043743777</p>
+<div class="card">
+<h3>Quick Inquiry</h3>
+<input id="name" placeholder="Your Name">
+<input id="phone" placeholder="Phone Number">
+<input id="pick" placeholder="Pickup Location">
+<input id="drop" placeholder="Drop Location">
+<input id="km" placeholder="Approx KM">
+<button class="btn" onclick="estimate()">Estimate Fare</button>
+<p id="fare"></p>
+<button class="btn whatsapp" onclick="sendWA()">Send WhatsApp Inquiry</button>
 </div>
 
-<div class="p-4">
-<div class="bg-white p-4 rounded shadow">
-<h3 class="font-bold mb-2">Quick Inquiry</h3>
-
-<input id="name" placeholder="Name" class="border w-full mb-2 p-2">
-<input id="phone" placeholder="Phone" class="border w-full mb-2 p-2">
-<input id="from" placeholder="From" class="border w-full mb-2 p-2">
-<input id="to" placeholder="To" class="border w-full mb-2 p-2">
-<input id="km" placeholder="Round Trip KM (optional)" class="border w-full mb-2 p-2">
-
-<button onclick="calc()" class="bg-red-600 text-white w-full p-2 rounded">Estimate Fare</button>
-<div id="fare" class="text-center font-bold mt-2"></div>
-
-<button onclick="wa()" class="bg-green-500 text-white w-full p-2 rounded mt-2">Send WhatsApp</button>
-</div>
+<div class="card">
+<h3>Outstation</h3>
+₹14 per KM + ₹400 Driver Beta<br>
+Toll & Parking Extra
 </div>
 
+<div class="card">
+<h3>Office Address</h3>
+286, DB Road,<br>
+RS Puram, Coimbatore – 641002<br>
+📞 9043743777
 </div>
 
-<!-- TOURIST -->
-<div id="tour" class="hidden p-4 space-y-4">
+<iframe src="https://maps.google.com/maps?q=286%20DB%20Road%20RS%20Puram%20Coimbatore&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
 
-<h2 class="font-bold text-lg">Tourist Destinations</h2>
-
-<div class="bg-white p-3 rounded shadow">Isha Yoga – ₹1100</div>
-<div class="bg-white p-3 rounded shadow">Ooty – Contact</div>
-<div class="bg-white p-3 rounded shadow">Coonoor – Contact</div>
-<div class="bg-white p-3 rounded shadow">Kodaikanal – Contact</div>
-
+</section>
 </div>
 
-<!-- FARES -->
-<div id="farepage" class="hidden p-4 space-y-2">
+<div id="fares" style="display:none">
+<section>
 
-<h2 class="font-bold text-lg">One Way Drop (Fixed)</h2>
-
-<p>Annur – ₹1100</p>
-<p>Isha – ₹1100</p>
-<p>Anaikatti – ₹1200</p>
-<p>Mettupalayam – ₹1300</p>
-<p>Palladam – ₹1300</p>
-<p>Sirumugai – ₹1400</p>
-<p>Avinashi – ₹1500</p>
-<p>Pollachi – ₹1500</p>
-<p>Vana Bathrakaliamman – ₹1600</p>
-<p>Airport → Tiruppur – ₹1600</p>
-<p>Puliyampatti – ₹1700</p>
-<p>Palakkad – ₹1800</p>
-<p>Tiruppur – ₹1900</p>
-
-<hr>
-
-<h2 class="font-bold mt-2">Round Trip</h2>
-<p>₹14 / KM + Driver Beta ₹400 + Toll & Parking Extra</p>
-
+<div class="card"><b>Fixed One Way Fares</b><br><br>
+Annur – ₹1100<br>
+Isha Yoga – ₹1100<br>
+Anaikatti – ₹1200<br>
+Mettupalayam – ₹1300<br>
+Palladam – ₹1300<br>
+Sirumugai – ₹1400<br>
+Avinashi – ₹1500<br>
+Pollachi – ₹1500<br>
+Tiruppur – ₹1900<br>
+Palakkad – ₹1800<br>
 </div>
 
-<!-- ABOUT -->
-<div id="about" class="hidden p-4">
-Reliable Rides Tours & Cab provides safe, affordable taxi services in Coimbatore and outstation.
+</section>
 </div>
 
-<!-- PRIVACY -->
-<div id="privacy" class="hidden p-4">
-Customer data is never shared. Used only for booking.
+<div id="spots" style="display:none">
+<section>
+
+<div class="card">
+<h3>Ooty</h3>
+<img src="https://images.unsplash.com/featured/?ooty">
+Rose Garden • Botanical Garden • Ooty Lake • Doddabetta • Pine Forest
 </div>
 
-<!-- FOOTER -->
-<div class="bg-red-600 text-white text-center p-3">
-© Reliable Rides Tours & Cab
+<div class="card">
+<h3>Isha Yoga</h3>
+<img src="https://images.unsplash.com/featured/?isha,yoga">
+Adiyogi • Dhyanalinga • Theerthakund
 </div>
 
-<a href="tel:9043743777" class="fixed bottom-4 right-4 bg-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center">🚕</a>
+<div class="card">
+<h3>Coonoor</h3>
+<img src="https://images.unsplash.com/featured/?coonoor">
+Sim’s Park • Dolphin Nose • Tea Gardens
+</div>
+
+<div class="card">
+<h3>Kodaikanal</h3>
+<img src="https://images.unsplash.com/featured/?kodaikanal">
+Lake • Pillar Rocks • Coaker’s Walk
+</div>
+
+<div class="card">
+<h3>Munnar</h3>
+<img src="https://images.unsplash.com/featured/?munnar">
+Tea Estates • Echo Point • Mattupetty Dam
+</div>
+
+<div class="card">
+<h3>Valparai</h3>
+<img src="https://images.unsplash.com/featured/?valparai">
+Aliyar Dam • Monkey Falls • Tea Estates
+</div>
+
+</section>
+</div>
+
+<div class="float">
+<a class="call" href="tel:9043743777">Call</a>
+<a class="wa" href="https://wa.me/919043743777">WhatsApp</a>
+</div>
 
 <script>
-
-function show(x){
-home.style.display="none";
-tour.style.display="none";
-farepage.style.display="none";
-about.style.display="none";
-privacy.style.display="none";
-
-if(x=="home")home.style.display="block";
-if(x=="tour")tour.style.display="block";
-if(x=="fare")farepage.style.display="block";
-if(x=="about")about.style.display="block";
-if(x=="privacy")privacy.style.display="block";
-menu.classList.add("hidden");
+function show(id){
+home.style.display='none';
+spots.style.display='none';
+fares.style.display='none';
+document.getElementById(id).style.display='block';
 }
 
-function calc(){
-let k=parseFloat(km.value||0);
-let t=(k*14)+400+100;
-fare.innerHTML="Approx Fare ₹"+t;
+function estimate(){
+let km=document.getElementById("km").value;
+let f=(km*25)+80;
+document.getElementById("fare").innerHTML="Approx Fare ₹"+f;
 }
 
-function wa(){
-let msg=`Name:${name.value}%0APhone:${phone.value}%0AFrom:${from.value}%0ATo:${to.value}%0AFare:${fare.innerText}`;
-window.open("https://wa.me/919043743777?text="+msg);
+function sendWA(){
+let t=`Name:${name.value}%0aPhone:${phone.value}%0aPickup:${pick.value}%0aDrop:${drop.value}`;
+window.open("https://wa.me/919043743777?text="+t);
 }
-
 </script>
 
 </body>
