@@ -10,9 +10,9 @@
 body{margin:0;font-family:Arial, sans-serif;background:#f5f5f5}
 header{background:#d32f2f;color:white;padding:12px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 
-/* Hero Section - UPDATED TO HILL STATION BACKGROUND */
+/* Hero Section */
 .hero{
-/* Image: Misty Tea Gardens/Hill Station (Ooty/Munnar style) */
+/* Image: Misty Tea Gardens/Hill Station */
 background:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596005554384-d293674c91d7?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
 height:260px;
 position:relative;
@@ -227,8 +227,20 @@ if(!km){
 document.getElementById("fare").innerHTML = "Please enter valid KM";
 return;
 }
-let f = Math.round(km * 25); 
-if(f < 150) f = 150; 
+
+// Logic: 
+// IF km <= 10 THEN Base Fare = 60
+// IF km > 10  THEN Base Fare = 80
+let baseFare = 0;
+if(km <= 10){
+    baseFare = 60;
+} else {
+    baseFare = 80;
+}
+
+// Total = (KM * 25) + Base Fare
+let f = Math.round(km * 25) + baseFare; 
+
 document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
 }
 
