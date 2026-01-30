@@ -10,8 +10,9 @@
 body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
 header { background: #d32f2f; color: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); font-size: 18px; letter-spacing: 1px; }
 
-/* --- HERO SECTION (Hill Station Background) --- */
+/* --- HERO SECTION --- */
 .hero {
+    /* Main Cover Image */
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596005554384-d293674c91d7?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
     height: 260px;
     position: relative;
@@ -43,23 +44,34 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 .btn { background: #d32f2f; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 5px; }
 .whatsapp { background: #25d366; margin-top: 10px; }
 
-/* --- TOURIST SPOT CARDS (New Design) --- */
+/* --- TOURIST SPOT CARDS (Fixed Image Loading) --- */
 .spot-card {
     height: 220px;
     border-radius: 15px;
-    position: relative;
+    position: relative; /* Needed for absolute positioning of children */
     overflow: hidden;
     margin-bottom: 20px;
-    background-size: cover;
-    background-position: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+
+/* This forces the image to cover the card */
+.spot-bg-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills card without stretching */
+    z-index: 1;
+}
+
+/* This puts the gradient and text ON TOP of the image */
 .spot-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0));
     padding: 20px;
     color: white;
+    z-index: 2; /* Sits on top of image */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -134,7 +146,8 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <div id="spots" style="display:none">
     <section>
         
-        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1544634076-a90160ccdca9?q=80&w=800&auto=format&fit=crop')">
+        <div class="spot-card">
+            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1544634076-a90160ccdca9?q=80&w=800&auto=format&fit=crop" alt="Ooty">
             <div class="spot-overlay">
                 <h3>Ooty</h3>
                 <p>Rose Garden • Botanical Garden • Ooty Lake • Doddabetta Peak</p>
@@ -142,7 +155,8 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
             </div>
         </div>
 
-        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1582555620953-61405e608027?q=80&w=800&auto=format&fit=crop')">
+        <div class="spot-card">
+            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1582555620953-61405e608027?q=80&w=800&auto=format&fit=crop" alt="Isha Yoga">
             <div class="spot-overlay">
                 <h3>Isha Yoga Center</h3>
                 <p>Adiyogi Statue • Dhyanalinga • Velliangiri Mountains</p>
@@ -150,7 +164,8 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
             </div>
         </div>
 
-        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1627387258934-8c460d402120?q=80&w=800&auto=format&fit=crop')">
+        <div class="spot-card">
+            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1627387258934-8c460d402120?q=80&w=800&auto=format&fit=crop" alt="Coonoor">
             <div class="spot-overlay">
                 <h3>Coonoor</h3>
                 <p>Sim's Park • Dolphin Nose • Nilgiri Mountain Railway</p>
@@ -158,7 +173,8 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
             </div>
         </div>
 
-        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1587321152367-5d3c90710609?q=80&w=800&auto=format&fit=crop')">
+        <div class="spot-card">
+            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1587321152367-5d3c90710609?q=80&w=800&auto=format&fit=crop" alt="Kodaikanal">
             <div class="spot-overlay">
                 <h3>Kodaikanal</h3>
                 <p>Kodai Lake • Pillar Rocks • Coaker's Walk • Silver Cascade Falls</p>
@@ -166,7 +182,8 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
             </div>
         </div>
 
-        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1591024328562-b13182855b34?q=80&w=800&auto=format&fit=crop')">
+        <div class="spot-card">
+            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1591024328562-b13182855b34?q=80&w=800&auto=format&fit=crop" alt="Munnar">
             <div class="spot-overlay">
                 <h3>Munnar</h3>
                 <p>Tea Museum • Mattupetty Dam • Eravikulam National Park</p>
@@ -174,7 +191,8 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
             </div>
         </div>
 
-        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800&auto=format&fit=crop')">
+        <div class="spot-card">
+            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800&auto=format&fit=crop" alt="Valparai">
             <div class="spot-overlay">
                 <h3>Valparai</h3>
                 <p>Aliyar Dam • Loam's View Point • Monkey Falls</p>
@@ -218,59 +236,44 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <script>
 // --- NAVIGATION LOGIC ---
 function show(id){
-    // Hide all sections
     document.getElementById('home').style.display='none';
     document.getElementById('spots').style.display='none';
     document.getElementById('fares').style.display='none';
     
-    // Reset buttons
     document.getElementById('btn-home').classList.remove('active');
     document.getElementById('btn-spots').classList.remove('active');
     document.getElementById('btn-fares').classList.remove('active');
 
-    // Show active section & highlight button
     document.getElementById(id).style.display='block';
     document.getElementById('btn-'+id).classList.add('active');
-    
     window.scrollTo(0,0);
 }
 
-// --- FARE ESTIMATION LOGIC ---
+// --- FARE ESTIMATION LOGIC (With Base Fare Rule) ---
 function estimate(){
     let km = parseFloat(document.getElementById("km").value);
     if(!km){
         document.getElementById("fare").innerHTML = "Please enter valid KM";
         return;
     }
-
-    // Logic: 
     // IF km <= 10 THEN Base Fare = 60
     // IF km > 10  THEN Base Fare = 80
     let baseFare = (km <= 10) ? 60 : 80;
-
-    // Total = (KM * 25) + Base Fare
     let f = Math.round(km * 25) + baseFare; 
-
     document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
 }
 
-// --- WHATSAPP INQUIRY ---
+// --- WHATSAPP LOGIC ---
 function sendWA(){
     let n = document.getElementById("name").value;
     let p = document.getElementById("phone").value;
     let pick = document.getElementById("pick").value;
     let drop = document.getElementById("drop").value;
-
-    if(n === "" || p === "") {
-        alert("Please fill Name and Phone");
-        return;
-    }
-
+    if(n === "" || p === "") { alert("Please fill Name and Phone"); return; }
     let t = `*New Inquiry via Website*%0aName: ${n}%0aPhone: ${p}%0aPickup: ${pick}%0aDrop: ${drop}`;
     window.open("https://wa.me/919043743777?text="+t, '_blank');
 }
 
-// --- BOOK SPOT BUTTON ---
 function bookSpot(spotName){
     let t = `*I am interested in booking a trip to ${spotName}*`;
     window.open("https://wa.me/919043743777?text="+t, '_blank');
