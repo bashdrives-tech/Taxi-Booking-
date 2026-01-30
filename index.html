@@ -3,127 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Reliable Rides Tours & Cab – Taxi in Coimbatore</title>
-
+<title>Reliable Rides Tours & Cab – Coimbatore</title>
 <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
 
 <body class="bg-gray-100">
 
 <!-- HEADER -->
-<div class="bg-red-600 text-white flex justify-between items-center p-4">
-<b>Reliable Rides Tours & Cab</b>
-<span>☰</span>
+<div class="bg-red-600 text-white p-4 flex justify-between">
+<div>
+<b>Reliable Rides Tours & Cab</b><br>
+<span class="text-xs">Taxi Service in Coimbatore</span>
+</div>
+<button onclick="menu.classList.toggle('hidden')">⋮</button>
 </div>
 
-<!-- HERO -->
-<div class="relative">
-<img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957" class="w-full h-52 object-cover">
-<div class="absolute inset-0 bg-red-600/70 flex items-center justify-center">
-<h1 class="text-white text-3xl font-bold">Coimbatore</h1>
-</div>
-</div>
-
-<!-- TAGLINE -->
-<div class="bg-white p-5 text-center">
-<h2 class="text-xl font-bold text-red-600">Reach Us, We are here to help you</h2>
-<p class="mt-2">Safe rides • On-time pickup • Comfortable travel</p>
-
-<div class="mt-4 flex justify-center gap-2">
-<span class="border px-4 py-1 rounded-full text-red-600 border-red-600">Coimbatore</span>
-<span class="border px-4 py-1 rounded-full">Tourist Spots</span>
-<span class="border px-4 py-1 rounded-full">Fares</span>
+<!-- MENU -->
+<div id="menu" class="hidden bg-white shadow p-3 text-sm">
+<p onclick="show('home')">Home</p>
+<p onclick="show('tour')">Tourist Spots</p>
+<p onclick="show('fare')">Fares</p>
+<p onclick="show('about')">About Us</p>
+<p onclick="show('privacy')">Privacy Policy</p>
+<a href="https://maps.google.com/?q=286 DB Road RS Puram Coimbatore" target="_blank">Google Maps</a>
 </div>
 
-<a href="tel:9043743777" class="inline-block mt-4 border border-red-600 text-red-600 px-6 py-2 rounded-full">
-📞 9043743777
-</a>
+<!-- HOME -->
+<div id="home">
+
+<div class="bg-white p-4 text-center">
+<h1 class="text-xl font-bold">Taxi in Coimbatore</h1>
+<p>Call : 9043743777</p>
 </div>
 
-<!-- FARE -->
 <div class="p-4">
-<div class="bg-white rounded shadow p-4">
-<h3 class="font-bold text-lg mb-2">One-Way Trip Fare</h3>
-<p>Base Fare ₹80 + ₹25 per KM</p>
+<div class="bg-white p-4 rounded shadow">
+<h3 class="font-bold mb-2">Quick Inquiry</h3>
+
+<input id="name" placeholder="Name" class="border w-full mb-2 p-2">
+<input id="phone" placeholder="Phone" class="border w-full mb-2 p-2">
+<input id="from" placeholder="From" class="border w-full mb-2 p-2">
+<input id="to" placeholder="To" class="border w-full mb-2 p-2">
+<input id="km" placeholder="Round Trip KM (optional)" class="border w-full mb-2 p-2">
+
+<button onclick="calc()" class="bg-red-600 text-white w-full p-2 rounded">Estimate Fare</button>
+<div id="fare" class="text-center font-bold mt-2"></div>
+
+<button onclick="wa()" class="bg-green-500 text-white w-full p-2 rounded mt-2">Send WhatsApp</button>
 </div>
 </div>
 
-<!-- BOOKING -->
-<div class="p-4">
-<div class="bg-white rounded shadow p-4">
-
-<h3 class="font-bold mb-3">Quick Booking</h3>
-
-<input id="name" class="border w-full p-2 mb-2 rounded" placeholder="Name">
-<input id="phone" class="border w-full p-2 mb-2 rounded" placeholder="Phone">
-<input id="pickup" class="border w-full p-2 mb-2 rounded" placeholder="Pickup Location">
-<input id="drop" class="border w-full p-2 mb-2 rounded" placeholder="Drop Location">
-<input id="km" class="border w-full p-2 mb-3 rounded" placeholder="Approx KM">
-
-<button onclick="calcFare()" class="bg-red-600 text-white w-full p-2 rounded mb-2">
-Estimate Fare
-</button>
-
-<div id="fare" class="text-center font-bold mb-2"></div>
-
-<button onclick="sendWA()" class="bg-green-500 text-white w-full p-2 rounded">
-Submit on WhatsApp
-</button>
-
-</div>
 </div>
 
-<!-- ADDRESS -->
-<div class="bg-white p-4 text-sm">
-<b>Office Address</b><br>
-286, DB Road,<br>
-RS Puram, Coimbatore – 641002<br>
-📞 9043743777
-</div>
+<!-- TOURIST -->
+<div id="tour" class="hidden p-4 space-y-4">
 
-<!-- MAP -->
-<iframe
-width="100%"
-height="250"
-style="border:0"
-loading="lazy"
-src="https://maps.google.com/maps?q=286%20DB%20Road%20RS%20Puram%20Coimbatore&z=15&output=embed">
-</iframe>
+<h2 class="font-bold text-lg">Tourist Destinations</h2>
 
-<!-- BOTTOM BAR -->
-<div class="fixed bottom-0 left-0 right-0 flex text-white font-bold">
-
-<a href="tel:9043743777" class="w-1/2 bg-yellow-500 py-3 text-center">
-📞 Call
-</a>
-
-<a href="https://wa.me/919043743777" class="w-1/2 bg-green-500 py-3 text-center">
-💬 WhatsApp
-</a>
+<div class="bg-white p-3 rounded shadow">Isha Yoga – ₹1100</div>
+<div class="bg-white p-3 rounded shadow">Ooty – Contact</div>
+<div class="bg-white p-3 rounded shadow">Coonoor – Contact</div>
+<div class="bg-white p-3 rounded shadow">Kodaikanal – Contact</div>
 
 </div>
+
+<!-- FARES -->
+<div id="farepage" class="hidden p-4 space-y-2">
+
+<h2 class="font-bold text-lg">One Way Drop (Fixed)</h2>
+
+<p>Annur – ₹1100</p>
+<p>Isha – ₹1100</p>
+<p>Anaikatti – ₹1200</p>
+<p>Mettupalayam – ₹1300</p>
+<p>Palladam – ₹1300</p>
+<p>Sirumugai – ₹1400</p>
+<p>Avinashi – ₹1500</p>
+<p>Pollachi – ₹1500</p>
+<p>Vana Bathrakaliamman – ₹1600</p>
+<p>Airport → Tiruppur – ₹1600</p>
+<p>Puliyampatti – ₹1700</p>
+<p>Palakkad – ₹1800</p>
+<p>Tiruppur – ₹1900</p>
+
+<hr>
+
+<h2 class="font-bold mt-2">Round Trip</h2>
+<p>₹14 / KM + Driver Beta ₹400 + Toll & Parking Extra</p>
+
+</div>
+
+<!-- ABOUT -->
+<div id="about" class="hidden p-4">
+Reliable Rides Tours & Cab provides safe, affordable taxi services in Coimbatore and outstation.
+</div>
+
+<!-- PRIVACY -->
+<div id="privacy" class="hidden p-4">
+Customer data is never shared. Used only for booking.
+</div>
+
+<!-- FOOTER -->
+<div class="bg-red-600 text-white text-center p-3">
+© Reliable Rides Tours & Cab
+</div>
+
+<a href="tel:9043743777" class="fixed bottom-4 right-4 bg-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center">🚕</a>
 
 <script>
 
-function calcFare(){
-let k=parseFloat(km.value||0);
-let total=80+(k*25);
-fare.innerHTML="Approx Fare ₹"+total;
+function show(x){
+home.style.display="none";
+tour.style.display="none";
+farepage.style.display="none";
+about.style.display="none";
+privacy.style.display="none";
+
+if(x=="home")home.style.display="block";
+if(x=="tour")tour.style.display="block";
+if(x=="fare")farepage.style.display="block";
+if(x=="about")about.style.display="block";
+if(x=="privacy")privacy.style.display="block";
+menu.classList.add("hidden");
 }
 
-function sendWA(){
-let txt=
-"Reliable Rides Booking%0A"+
-"Name:"+name.value+"%0A"+
-"Phone:"+phone.value+"%0A"+
-"Pickup:"+pickup.value+"%0A"+
-"Drop:"+drop.value+"%0A"+
-"KM:"+km.value+"%0A"+
-fare.innerText;
+function calc(){
+let k=parseFloat(km.value||0);
+let t=(k*14)+400+100;
+fare.innerHTML="Approx Fare ₹"+t;
+}
 
-window.open("https://wa.me/919043743777?text="+txt);
+function wa(){
+let msg=`Name:${name.value}%0APhone:${phone.value}%0AFrom:${from.value}%0ATo:${to.value}%0AFare:${fare.innerText}`;
+window.open("https://wa.me/919043743777?text="+msg);
 }
 
 </script>
