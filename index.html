@@ -7,92 +7,90 @@
 
 <style>
 /* --- BASIC SETUP --- */
-body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
+body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding-bottom: 80px; }
 header { background: #d32f2f; color: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); font-size: 18px; letter-spacing: 1px; }
 
 /* --- HERO SECTION --- */
 .hero {
-    /* Main Cover Image */
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596005554384-d293674c91d7?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1596005554384-d293674c91d7?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
     height: 260px;
-    position: relative;
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: white;
 }
 .hero h1 { margin: 0; font-size: 28px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
-.hero p { margin: 5px 0 20px 0; font-size: 16px; color: #f1f1f1; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
-.hero-btn { background: #fbc02d; color: black; padding: 10px 20px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+.hero p { margin: 5px 0 20px 0; font-size: 16px; color: #f1f1f1; }
+.hero-btn { background: #fbc02d; color: black; padding: 10px 20px; text-decoration: none; border-radius: 25px; font-weight: bold; }
 
 /* --- NAVIGATION --- */
-nav { display: flex; justify-content: center; background: white; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 50; }
+nav { display: flex; justify-content: center; background: white; padding: 10px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 nav button {
     border: 1px solid #d32f2f; background: white; color: #d32f2f;
-    padding: 8px 16px; border-radius: 20px; margin: 0 5px; font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: 0.3s;
+    padding: 8px 16px; border-radius: 20px; margin: 0 5px; font-size: 13px; font-weight: 600; cursor: pointer;
 }
-nav button:hover, nav button.active { background: #d32f2f; color: white; }
+nav button.active { background: #d32f2f; color: white; }
 
-/* --- GENERAL SECTIONS --- */
+/* --- SECTIONS --- */
 section { padding: 15px; max-width: 600px; margin: auto; }
 .card { background: white; padding: 15px; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-/* --- INPUTS & BUTTONS --- */
-input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+/* --- FORM ELEMENTS --- */
+input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
 .btn { background: #d32f2f; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 5px; }
-.whatsapp { background: #25d366; margin-top: 10px; }
 
-/* --- TOURIST SPOT CARDS (Fixed Image Loading) --- */
-.spot-card {
-    height: 220px;
+/* --- NEW TOUR CARD STYLE (FORCE IMAGE) --- */
+.tour-box {
+    position: relative;
+    height: 240px;
     border-radius: 15px;
-    position: relative; /* Needed for absolute positioning of children */
     overflow: hidden;
     margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: #000; /* Fallback color */
 }
 
-/* This forces the image to cover the card */
-.spot-bg-img {
+/* Layer 1: The Image */
+.tour-img {
     position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image fills card without stretching */
+    object-fit: cover;
     z-index: 1;
+    opacity: 0.9;
 }
 
-/* This puts the gradient and text ON TOP of the image */
-.spot-overlay {
+/* Layer 2: The Gradient & Text */
+.tour-overlay {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0));
-    padding: 20px;
-    color: white;
-    z-index: 2; /* Sits on top of image */
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1));
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-}
-.spot-overlay h3 { margin: 0 0 5px 0; font-size: 22px; text-shadow: 1px 1px 2px black; }
-.spot-overlay p { margin: 0 0 10px 0; font-size: 12px; opacity: 0.9; line-height: 1.4; }
-.book-now-btn {
-    background: #d32f2f; color: white; border: none;
-    padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: bold;
-    cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* --- FIXED FOOTER --- */
-.float { position: fixed; bottom: 0; width: 100%; display: flex; z-index: 100; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-.float a { flex: 1; text-align: center; padding: 15px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; }
+.tour-overlay h3 { color: white; margin: 0 0 5px 0; font-size: 24px; text-shadow: 2px 2px 4px black; }
+.tour-overlay p { color: #ddd; margin: 0 0 12px 0; font-size: 13px; }
+.book-btn {
+    background: #d32f2f; color: white; border: none;
+    padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: bold;
+    cursor: pointer; align-self: flex-start;
+}
+
+/* --- FOOTER & FARE TABLE --- */
+.float { position: fixed; bottom: 0; width: 100%; display: flex; z-index: 200; }
+.float a { flex: 1; text-align: center; padding: 15px; color: white; text-decoration: none; font-weight: bold; }
 .call { background: #fbc02d; color: black; }
 .wa { background: #25d366; }
-
-/* --- FARE TABLE --- */
 .fare-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
-.fare-row:last-child { border-bottom: none; }
 </style>
 </head>
 
@@ -103,7 +101,7 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <div class="hero">
     <div class="heroContent">
         <h1>Reliable Rides<br>Tours & Cabs</h1>
-        <p>Taxi Service in Coimbatore • Safe • On-Time</p>
+        <p>Taxi Service in Coimbatore</p>
         <a href="tel:9043743777" class="hero-btn">📞 Call 9043743777</a>
     </div>
 </div>
@@ -117,28 +115,23 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <div id="home">
     <section>
         <div class="card">
-            <h3 style="margin-top:0;color:#d32f2f">Quick Fare Estimate</h3>
-            <input id="name" placeholder="Your Name">
-            <input id="phone" placeholder="Phone Number" type="tel">
-            <input id="pick" placeholder="Pickup Location">
-            <input id="drop" placeholder="Drop Location">
-            <input id="km" placeholder="Approx KM (e.g., 10)">
+            <h3 style="color:#d32f2f;margin-top:0">Quick Estimation</h3>
+            <input id="name" placeholder="Name">
+            <input id="phone" placeholder="Phone" type="tel">
+            <input id="pick" placeholder="Pickup">
+            <input id="drop" placeholder="Drop">
+            <input id="km" placeholder="Approx KM (e.g. 15)">
             <button class="btn" onclick="estimate()">Estimate Fare</button>
-            <p id="fare" style="text-align:center;font-weight:bold;margin:15px 0;color:#333;font-size:18px"></p>
-            <button class="btn whatsapp" onclick="sendWA()">Send WhatsApp Inquiry</button>
+            <p id="fare" style="text-align:center;font-weight:bold;margin:10px 0;font-size:18px"></p>
+            <button class="btn" style="background:#25d366" onclick="sendWA()">WhatsApp Inquiry</button>
         </div>
-
         <div class="card">
-            <h3 style="margin-top:0">Office Address</h3>
-            <p style="color:#555;line-height:1.6">
-                286, DB Road, RS Puram,<br>
-                Coimbatore – 641002<br>
-                <strong>📞 9043743777</strong>
-            </p>
+             <strong>Office Address:</strong><br>
+             286, DB Road, RS Puram, Coimbatore<br>
+             📞 9043743777
         </div>
-
-        <div class="card" style="padding:0;overflow:hidden">
-            <iframe src="https://maps.google.com/maps?q=RS+Puram+Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen></iframe>
+        <div class="card" style="padding:0;overflow:hidden;height:200px">
+             <iframe src="https://maps.google.com/maps?q=RS+Puram+Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen></iframe>
         </div>
     </section>
 </div>
@@ -146,57 +139,57 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <div id="spots" style="display:none">
     <section>
         
-        <div class="spot-card">
-            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1544634076-a90160ccdca9?q=80&w=800&auto=format&fit=crop" alt="Ooty">
-            <div class="spot-overlay">
+        <div class="tour-box">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1544634076-a90160ccdca9?q=80&w=600" alt="Ooty">
+            <div class="tour-overlay">
                 <h3>Ooty</h3>
-                <p>Rose Garden • Botanical Garden • Ooty Lake • Doddabetta Peak</p>
-                <button class="book-now-btn" onclick="bookSpot('Ooty')">Book Now</button>
+                <p>Rose Garden • Botanical Garden • Ooty Lake</p>
+                <button class="book-btn" onclick="book('Ooty')">Book Now</button>
             </div>
         </div>
 
-        <div class="spot-card">
-            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1582555620953-61405e608027?q=80&w=800&auto=format&fit=crop" alt="Isha Yoga">
-            <div class="spot-overlay">
+        <div class="tour-box">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1582555620953-61405e608027?q=80&w=600" alt="Isha Yoga">
+            <div class="tour-overlay">
                 <h3>Isha Yoga Center</h3>
-                <p>Adiyogi Statue • Dhyanalinga • Velliangiri Mountains</p>
-                <button class="book-now-btn" onclick="bookSpot('Isha Yoga')">Book Now</button>
+                <p>Adiyogi • Dhyanalinga • Velliangiri Mountains</p>
+                <button class="book-btn" onclick="book('Isha Yoga')">Book Now</button>
             </div>
         </div>
 
-        <div class="spot-card">
-            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1627387258934-8c460d402120?q=80&w=800&auto=format&fit=crop" alt="Coonoor">
-            <div class="spot-overlay">
+        <div class="tour-box">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1627387258934-8c460d402120?q=80&w=600" alt="Coonoor">
+            <div class="tour-overlay">
                 <h3>Coonoor</h3>
-                <p>Sim's Park • Dolphin Nose • Nilgiri Mountain Railway</p>
-                <button class="book-now-btn" onclick="bookSpot('Coonoor')">Book Now</button>
+                <p>Sim's Park • Dolphin Nose • Mountain Railway</p>
+                <button class="book-btn" onclick="book('Coonoor')">Book Now</button>
             </div>
         </div>
 
-        <div class="spot-card">
-            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1587321152367-5d3c90710609?q=80&w=800&auto=format&fit=crop" alt="Kodaikanal">
-            <div class="spot-overlay">
+        <div class="tour-box">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1587321152367-5d3c90710609?q=80&w=600" alt="Kodaikanal">
+            <div class="tour-overlay">
                 <h3>Kodaikanal</h3>
-                <p>Kodai Lake • Pillar Rocks • Coaker's Walk • Silver Cascade Falls</p>
-                <button class="book-now-btn" onclick="bookSpot('Kodaikanal')">Book Now</button>
+                <p>Kodai Lake • Pillar Rocks • Coaker's Walk</p>
+                <button class="book-btn" onclick="book('Kodaikanal')">Book Now</button>
             </div>
         </div>
 
-        <div class="spot-card">
-            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1591024328562-b13182855b34?q=80&w=800&auto=format&fit=crop" alt="Munnar">
-            <div class="spot-overlay">
+        <div class="tour-box">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1591024328562-b13182855b34?q=80&w=600" alt="Munnar">
+            <div class="tour-overlay">
                 <h3>Munnar</h3>
-                <p>Tea Museum • Mattupetty Dam • Eravikulam National Park</p>
-                <button class="book-now-btn" onclick="bookSpot('Munnar')">Book Now</button>
+                <p>Tea Museum • Mattupetty Dam • Eravikulam Park</p>
+                <button class="book-btn" onclick="book('Munnar')">Book Now</button>
             </div>
         </div>
 
-        <div class="spot-card">
-            <img class="spot-bg-img" src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800&auto=format&fit=crop" alt="Valparai">
-            <div class="spot-overlay">
+        <div class="tour-box">
+            <img class="tour-img" src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=600" alt="Valparai">
+            <div class="tour-overlay">
                 <h3>Valparai</h3>
                 <p>Aliyar Dam • Loam's View Point • Monkey Falls</p>
-                <button class="book-now-btn" onclick="bookSpot('Valparai')">Book Now</button>
+                <button class="book-btn" onclick="book('Valparai')">Book Now</button>
             </div>
         </div>
 
@@ -207,21 +200,15 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
     <section>
         <div class="card">
             <h3 style="color:#d32f2f">Outstation Tariff</h3>
-            <p><strong>₹14 per KM</strong><br>
-            + ₹400 Driver Beta / Day<br>
-            <small style="color:#777">(Toll & Parking charges extra)</small></p>
+            <p><strong>₹14 per KM</strong><br>+ ₹400 Driver Beta / Day<br><small>(Toll & Parking Extra)</small></p>
         </div>
-
         <div class="card">
-            <h3 style="color:#d32f2f; margin-bottom:15px">One Way Drops (Fixed)</h3>
-            <div class="fare-row"><span>Annur</span><b>₹1100</b></div>
-            <div class="fare-row"><span>Isha Yoga</span><b>₹1100</b></div>
+            <h3 style="color:#d32f2f">One Way Drops</h3>
+            <div class="fare-row"><span>Annur / Isha Yoga</span><b>₹1100</b></div>
             <div class="fare-row"><span>Anaikatti</span><b>₹1200</b></div>
-            <div class="fare-row"><span>Mettupalayam</span><b>₹1300</b></div>
-            <div class="fare-row"><span>Palladam</span><b>₹1300</b></div>
+            <div class="fare-row"><span>Mettupalayam / Palladam</span><b>₹1300</b></div>
             <div class="fare-row"><span>Sirumugai</span><b>₹1400</b></div>
-            <div class="fare-row"><span>Avinashi</span><b>₹1500</b></div>
-            <div class="fare-row"><span>Pollachi</span><b>₹1500</b></div>
+            <div class="fare-row"><span>Avinashi / Pollachi</span><b>₹1500</b></div>
             <div class="fare-row"><span>Palakkad</span><b>₹1800</b></div>
             <div class="fare-row"><span>Tiruppur</span><b>₹1900</b></div>
         </div>
@@ -229,54 +216,40 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 </div>
 
 <div class="float">
-    <a class="call" href="tel:9043743777">📞 Call Now</a>
+    <a class="call" href="tel:9043743777">📞 Call</a>
     <a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
 </div>
 
 <script>
-// --- NAVIGATION LOGIC ---
 function show(id){
-    document.getElementById('home').style.display='none';
-    document.getElementById('spots').style.display='none';
-    document.getElementById('fares').style.display='none';
-    
-    document.getElementById('btn-home').classList.remove('active');
-    document.getElementById('btn-spots').classList.remove('active');
-    document.getElementById('btn-fares').classList.remove('active');
-
-    document.getElementById(id).style.display='block';
+    document.querySelectorAll('#home, #spots, #fares').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('nav button').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).style.display = 'block';
     document.getElementById('btn-'+id).classList.add('active');
     window.scrollTo(0,0);
 }
 
-// --- FARE ESTIMATION LOGIC (With Base Fare Rule) ---
 function estimate(){
     let km = parseFloat(document.getElementById("km").value);
-    if(!km){
-        document.getElementById("fare").innerHTML = "Please enter valid KM";
-        return;
-    }
-    // IF km <= 10 THEN Base Fare = 60
-    // IF km > 10  THEN Base Fare = 80
-    let baseFare = (km <= 10) ? 60 : 80;
-    let f = Math.round(km * 25) + baseFare; 
+    if(!km){ document.getElementById("fare").innerHTML = "Enter valid KM"; return; }
+    // Rule: Base 60 if <=10km, else Base 80
+    let base = (km <= 10) ? 60 : 80;
+    let f = Math.round(km * 25) + base; 
     document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
 }
 
-// --- WHATSAPP LOGIC ---
 function sendWA(){
     let n = document.getElementById("name").value;
     let p = document.getElementById("phone").value;
     let pick = document.getElementById("pick").value;
     let drop = document.getElementById("drop").value;
-    if(n === "" || p === "") { alert("Please fill Name and Phone"); return; }
-    let t = `*New Inquiry via Website*%0aName: ${n}%0aPhone: ${p}%0aPickup: ${pick}%0aDrop: ${drop}`;
+    if(!n || !p) { alert("Enter Name & Phone"); return; }
+    let t = `*Website Inquiry*%0aName: ${n}%0aPhone: ${p}%0aPickup: ${pick}%0aDrop: ${drop}`;
     window.open("https://wa.me/919043743777?text="+t, '_blank');
 }
 
-function bookSpot(spotName){
-    let t = `*I am interested in booking a trip to ${spotName}*`;
-    window.open("https://wa.me/919043743777?text="+t, '_blank');
+function book(spot){
+    window.open("https://wa.me/919043743777?text=I want to book a trip to " + spot, '_blank');
 }
 </script>
 
