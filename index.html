@@ -6,91 +6,48 @@
 <title>Reliable Rides Tours & Cab</title>
 
 <style>
-/* --- BASIC SETUP --- */
-body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding-bottom: 80px; }
+body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
 header { background: #d32f2f; color: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); font-size: 18px; letter-spacing: 1px; }
 
-/* --- HERO SECTION (Updated Hill Station Scenery) --- */
+/* HERO WITH HILL STATION SCENERY */
 .hero {
-    /* Wikimedia Image: Munnar Hills / Nilgiris Scenery */
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Munnar_hills.jpg/1280px-Munnar_hills.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('https://images.unsplash.com/photo-1621768216002-5ac171876625?q=80&w=1400&auto=format&fit=crop')
+    center/cover no-repeat;
     height: 260px;
+    position: relative;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
 }
+
 .hero h1 { margin: 0; font-size: 28px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 .hero p { margin: 5px 0 20px 0; font-size: 16px; color: #f1f1f1; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
 .hero-btn { background: #fbc02d; color: black; padding: 10px 20px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
 
-/* --- NAVIGATION --- */
-nav { display: flex; justify-content: center; background: white; padding: 10px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+nav { display: flex; justify-content: center; background: white; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 50; }
 nav button {
     border: 1px solid #d32f2f; background: white; color: #d32f2f;
-    padding: 8px 16px; border-radius: 20px; margin: 0 5px; font-size: 13px; font-weight: 600; cursor: pointer;
+    padding: 8px 16px; border-radius: 20px; margin: 0 5px; font-size: 13px; font-weight: 600;
+    cursor: pointer;
 }
-nav button.active { background: #d32f2f; color: white; }
+nav button.active { background:#d32f2f;color:white }
 
-/* --- SECTIONS --- */
 section { padding: 15px; max-width: 600px; margin: auto; }
 .card { background: white; padding: 15px; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-/* --- FORM ELEMENTS --- */
-input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-.btn { background: #d32f2f; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 5px; }
+input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; }
+.btn { background: #d32f2f; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; }
+.whatsapp { background: #25d366; margin-top: 10px; }
 
-/* --- TOUR CARD STYLE --- */
-.tour-box {
-    position: relative;
-    height: 240px;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    background: #333;
-}
-
-/* Layer 1: The Image */
-.tour-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-}
-
-/* Layer 2: The Gradient & Text */
-.tour-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1));
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.tour-overlay h3 { color: white; margin: 0 0 5px 0; font-size: 24px; text-shadow: 2px 2px 4px black; }
-.tour-overlay p { color: #ddd; margin: 0 0 12px 0; font-size: 13px; text-shadow: 1px 1px 2px black; }
-.book-btn {
-    background: #d32f2f; color: white; border: none;
-    padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: bold;
-    cursor: pointer; align-self: flex-start;
-}
-
-/* --- FOOTER & FARE TABLE --- */
-.float { position: fixed; bottom: 0; width: 100%; display: flex; z-index: 200; }
+.float { position: fixed; bottom: 0; width: 100%; display: flex; }
 .float a { flex: 1; text-align: center; padding: 15px; color: white; text-decoration: none; font-weight: bold; }
-.call { background: #fbc02d; color: black; }
-.wa { background: #25d366; }
-.fare-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+.call { background: #fbc02d; color:black }
+.wa { background: #25d366 }
+
+.fare-row { display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee }
 </style>
 </head>
 
@@ -99,157 +56,71 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <header><b>Reliable Rides</b></header>
 
 <div class="hero">
-    <div class="heroContent">
+    <div>
         <h1>Reliable Rides<br>Tours & Cabs</h1>
-        <p>Taxi Service in Coimbatore</p>
+        <p>Taxi Service in Coimbatore • Safe • On-Time</p>
         <a href="tel:9043743777" class="hero-btn">📞 Call 9043743777</a>
     </div>
 </div>
 
 <nav>
-    <button onclick="show('home')" id="btn-home" class="active">Coimbatore</button>
-    <button onclick="show('spots')" id="btn-spots">Tourist Spots</button>
-    <button onclick="show('fares')" id="btn-fares">Fares</button>
+<button onclick="show('home')" id="btn-home" class="active">Coimbatore</button>
+<button onclick="show('spots')" id="btn-spots">Tourist Spots</button>
+<button onclick="show('fares')" id="btn-fares">Fares</button>
 </nav>
 
 <div id="home">
-    <section>
-        <div class="card">
-            <h3 style="color:#d32f2f;margin-top:0">Quick Estimation</h3>
-            <input id="name" placeholder="Name">
-            <input id="phone" placeholder="Phone" type="tel">
-            <input id="pick" placeholder="Pickup">
-            <input id="drop" placeholder="Drop">
-            <input id="km" placeholder="Approx KM (e.g. 15)">
-            <button class="btn" onclick="estimate()">Estimate Fare</button>
-            <p id="fare" style="text-align:center;font-weight:bold;margin:10px 0;font-size:18px"></p>
-            <button class="btn" style="background:#25d366" onclick="sendWA()">WhatsApp Inquiry</button>
-        </div>
-        <div class="card">
-             <strong>Office Address:</strong><br>
-             286, DB Road, RS Puram, Coimbatore<br>
-             📞 9043743777
-        </div>
-        <div class="card" style="padding:0;overflow:hidden;height:200px">
-             <iframe src="https://maps.google.com/maps?q=RS+Puram+Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" frameborder="0" style="border:0;" allowfullscreen></iframe>
-        </div>
-    </section>
+<section>
+<div class="card">
+<h3 style="color:#d32f2f">Quick Fare Estimate</h3>
+<input id="name" placeholder="Your Name">
+<input id="phone" placeholder="Phone Number">
+<input id="pick" placeholder="Pickup Location">
+<input id="drop" placeholder="Drop Location">
+<input id="km" placeholder="Approx KM">
+<button class="btn" onclick="estimate()">Estimate Fare</button>
+<p id="fare" style="text-align:center;font-weight:bold"></p>
+<button class="btn whatsapp" onclick="sendWA()">Send WhatsApp Inquiry</button>
+</div>
+</section>
 </div>
 
-<div id="spots" style="display:none">
-    <section>
-        
-        <div class="tour-box">
-            <img class="tour-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Ooty_Lake_1.jpg/640px-Ooty_Lake_1.jpg" alt="Ooty">
-            <div class="tour-overlay">
-                <h3>Ooty</h3>
-                <p>Rose Garden • Botanical Garden • Ooty Lake</p>
-                <button class="book-btn" onclick="book('Ooty')">Book Now</button>
-            </div>
-        </div>
-
-        <div class="tour-box">
-            <img class="tour-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Adiyogi_Shiva_statue_at_Isha_Yoga_Center%2C_Coimbatore.jpg/640px-Adiyogi_Shiva_statue_at_Isha_Yoga_Center%2C_Coimbatore.jpg" alt="Isha Yoga">
-            <div class="tour-overlay">
-                <h3>Isha Yoga Center</h3>
-                <p>Adiyogi • Dhyanalinga • Velliangiri Mountains</p>
-                <button class="book-btn" onclick="book('Isha Yoga')">Book Now</button>
-            </div>
-        </div>
-
-        <div class="tour-box">
-            <img class="tour-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Tea_gardens_at_Coonoor.jpg/640px-Tea_gardens_at_Coonoor.jpg" alt="Coonoor">
-            <div class="tour-overlay">
-                <h3>Coonoor</h3>
-                <p>Sim's Park • Dolphin Nose • Mountain Railway</p>
-                <button class="book-btn" onclick="book('Coonoor')">Book Now</button>
-            </div>
-        </div>
-
-        <div class="tour-box">
-            <img class="tour-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Kodaikanal_Lake_02.jpg/640px-Kodaikanal_Lake_02.jpg" alt="Kodaikanal">
-            <div class="tour-overlay">
-                <h3>Kodaikanal</h3>
-                <p>Kodai Lake • Pillar Rocks • Coaker's Walk</p>
-                <button class="book-btn" onclick="book('Kodaikanal')">Book Now</button>
-            </div>
-        </div>
-
-        <div class="tour-box">
-            <img class="tour-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Munnar_tea_plantation.jpg/640px-Munnar_tea_plantation.jpg" alt="Munnar">
-            <div class="tour-overlay">
-                <h3>Munnar</h3>
-                <p>Tea Museum • Mattupetty Dam • Eravikulam Park</p>
-                <button class="book-btn" onclick="book('Munnar')">Book Now</button>
-            </div>
-        </div>
-
-        <div class="tour-box">
-            <img class="tour-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Aliyar_Dam_Reservoir.jpg/640px-Aliyar_Dam_Reservoir.jpg" alt="Valparai">
-            <div class="tour-overlay">
-                <h3>Valparai</h3>
-                <p>Aliyar Dam • Loam's View Point • Monkey Falls</p>
-                <button class="book-btn" onclick="book('Valparai')">Book Now</button>
-            </div>
-        </div>
-
-    </section>
-</div>
+<div id="spots" style="display:none"><section></section></div>
 
 <div id="fares" style="display:none">
-    <section>
-        <div class="card">
-            <h3 style="color:#d32f2f">Outstation Tariff</h3>
-            <p><strong>₹14 per KM</strong><br>+ ₹400 Driver Beta / Day<br><small>(Toll & Parking Extra)</small></p>
-        </div>
-        <div class="card">
-            <h3 style="color:#d32f2f">One Way Drops</h3>
-            <div class="fare-row"><span>Annur / Isha Yoga</span><b>₹1100</b></div>
-            <div class="fare-row"><span>Anaikatti</span><b>₹1200</b></div>
-            <div class="fare-row"><span>Mettupalayam / Palladam</span><b>₹1300</b></div>
-            <div class="fare-row"><span>Sirumugai</span><b>₹1400</b></div>
-            <div class="fare-row"><span>Avinashi / Pollachi</span><b>₹1500</b></div>
-            <div class="fare-row"><span>Palakkad</span><b>₹1800</b></div>
-            <div class="fare-row"><span>Tiruppur</span><b>₹1900</b></div>
-        </div>
-    </section>
+<section>
+<div class="card">
+<div class="fare-row"><span>Isha Yoga</span><b>₹1100</b></div>
+<div class="fare-row"><span>Pollachi</span><b>₹1500</b></div>
+<div class="fare-row"><span>Palakkad</span><b>₹1800</b></div>
+</div>
+</section>
 </div>
 
 <div class="float">
-    <a class="call" href="tel:9043743777">📞 Call</a>
-    <a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
+<a class="call" href="tel:9043743777">📞 Call</a>
+<a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
 </div>
 
 <script>
 function show(id){
-    document.querySelectorAll('#home, #spots, #fares').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('nav button').forEach(el => el.classList.remove('active'));
-    document.getElementById(id).style.display = 'block';
-    document.getElementById('btn-'+id).classList.add('active');
-    window.scrollTo(0,0);
+home.style.display='none';spots.style.display='none';fares.style.display='none';
+btn-home.classList.remove('active');btn-spots.classList.remove('active');btn-fares.classList.remove('active');
+document.getElementById(id).style.display='block';
+document.getElementById('btn-'+id).classList.add('active');
+window.scrollTo(0,0);
 }
 
 function estimate(){
-    let km = parseFloat(document.getElementById("km").value);
-    if(!km){ document.getElementById("fare").innerHTML = "Enter valid KM"; return; }
-    // Rule: Base 60 if <=10km, else Base 80
-    let base = (km <= 10) ? 60 : 80;
-    let f = Math.round(km * 25) + base; 
-    document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
+let km=parseFloat(document.getElementById("km").value);
+if(!km){fare.innerHTML="Enter KM";return;}
+let base=(km<=10)?60:80;
+fare.innerHTML="Approx Fare ₹"+(Math.round(km*25)+base);
 }
 
 function sendWA(){
-    let n = document.getElementById("name").value;
-    let p = document.getElementById("phone").value;
-    let pick = document.getElementById("pick").value;
-    let drop = document.getElementById("drop").value;
-    if(!n || !p) { alert("Enter Name & Phone"); return; }
-    let t = `*Website Inquiry*%0aName: ${n}%0aPhone: ${p}%0aPickup: ${pick}%0aDrop: ${drop}`;
-    window.open("https://wa.me/919043743777?text="+t, '_blank');
-}
-
-function book(spot){
-    window.open("https://wa.me/919043743777?text=I want to book a trip to " + spot, '_blank');
+let t=`Name:${name.value}%0aPhone:${phone.value}%0aPickup:${pick.value}%0aDrop:${drop.value}`;
+window.open("https://wa.me/919043743777?text="+t);
 }
 </script>
 
