@@ -1,104 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reliable Rides Tours & Cab – Coimbatore Taxi Service</title>
-
-<meta name="description" content="Reliable Rides Tours & Cab offers taxi services from Coimbatore to Ooty, Isha, Aliyar Dam, Athirappilly, Palani and more. Call 9043743777">
-
+<title>Reliable Rides Tours & Cab – Taxi in Coimbatore</title>
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100">
 
 <!-- HEADER -->
-<div class="bg-red-600 text-white p-4 text-center">
-<h1 class="text-lg font-bold">Reliable Rides Tours & Cab</h1>
-<p class="text-xs">Taxi Service in Coimbatore</p>
+<div class="bg-red-600 text-white p-4 flex justify-between items-center">
+<div>
+<b>Reliable Rides Tours & Cab</b><br>
+<span class="text-xs">Taxi in Coimbatore</span>
+</div>
+<button onclick="toggleMenu()">⋮</button>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="hidden bg-white shadow p-3 text-sm">
+<p onclick="showAbout()" class="py-1">About Us</p>
+<p onclick="showPrivacy()" class="py-1">Privacy Policy</p>
+<a class="block py-1" href="#map">Google Maps</a>
 </div>
 
 <!-- HERO -->
 <div class="bg-white p-4 text-center">
-<h2 class="text-xl font-bold mb-1">Tourist Taxi from Coimbatore</h2>
-<p class="mb-2">Call Now: <a href="tel:9043743777" class="text-red-600 font-bold">9043743777</a></p>
+<h1 class="text-xl font-bold">Taxi Service in Coimbatore</h1>
+<p class="mt-1">📞 9043743777</p>
+<p class="text-sm">Safe • On-Time • Comfortable</p>
 </div>
 
-<!-- CARDS -->
-<div class="p-3 space-y-4">
+<!-- INQUIRY -->
+<div class="p-4">
+<div class="bg-white p-4 rounded shadow">
 
-<!-- OOTY -->
-<div class="bg-white rounded shadow">
-<img src="https://source.unsplash.com/800x400/?ooty" class="w-full rounded-t">
-<div class="p-3">
-<h3 class="font-bold text-lg">Ooty</h3>
-<p class="text-sm">Ooty is the Queen of Hills with beautiful landscapes. Visit Ooty by booking Reliable Rides Tours & Cab from Coimbatore.</p>
-<button onclick="book('Ooty')" class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Book Now</button>
-</div>
-</div>
+<h3 class="font-bold mb-2">Quick Inquiry</h3>
 
-<!-- ALIYAR -->
-<div class="bg-white rounded shadow">
-<img src="https://source.unsplash.com/800x400/?dam,mountains" class="w-full rounded-t">
-<div class="p-3">
-<h3 class="font-bold text-lg">Aliyar Dam</h3>
-<p class="text-sm">Aliyar Dam is a scenic picnic spot surrounded by Anamalai hills. Travel comfortably with Reliable Rides.</p>
-<button onclick="book('Aliyar Dam')" class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Book Now</button>
-</div>
-</div>
+<input id="name" placeholder="Your Name" class="border w-full mb-2 p-2">
+<input id="phone" placeholder="Phone Number" class="border w-full mb-2 p-2">
+<input id="from" placeholder="Pickup Location" class="border w-full mb-2 p-2">
+<input id="to" placeholder="Drop Location" class="border w-full mb-2 p-2">
+<input id="km" placeholder="Approx KM" class="border w-full mb-2 p-2">
 
-<!-- ATHIRAPPILLY -->
-<div class="bg-white rounded shadow">
-<img src="https://source.unsplash.com/800x400/?waterfall,kerala" class="w-full rounded-t">
-<div class="p-3">
-<h3 class="font-bold text-lg">Athirappilly</h3>
-<p class="text-sm">Athirappilly is Kerala’s largest waterfall. Book Coimbatore to Athirappilly taxi at affordable rates.</p>
-<button onclick="book('Athirappilly')" class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Book Now</button>
+<button onclick="calcFare()" class="bg-red-600 text-white w-full p-2 rounded mb-2">
+Estimate Fare
+</button>
+
+<div id="fare" class="font-bold text-center mb-2"></div>
+
+<button onclick="sendWA()" class="bg-green-500 text-white w-full p-2 rounded">
+Send WhatsApp Inquiry
+</button>
+
 </div>
 </div>
 
-<!-- ISHA -->
-<div class="bg-white rounded shadow">
-<img src="https://source.unsplash.com/800x400/?isha,adiyogi" class="w-full rounded-t">
-<div class="p-3">
-<h3 class="font-bold text-lg">Isha Yoga Centre</h3>
-<p class="text-sm">Visit Adiyogi and Isha Yoga Centre with peaceful rides from Coimbatore.</p>
-<button onclick="book('Isha Yoga')" class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Book Now</button>
-</div>
+<!-- ADDRESS -->
+<div class="bg-white p-4">
+<b>Office Address</b><br>
+286, DB Road,<br>
+RS Puram, Coimbatore – 641002<br>
+📞 9043743777
 </div>
 
-<!-- PALANI -->
-<div class="bg-white rounded shadow">
-<img src="https://source.unsplash.com/800x400/?palani,temple" class="w-full rounded-t">
-<div class="p-3">
-<h3 class="font-bold text-lg">Palani</h3>
-<p class="text-sm">Palani Murugan Temple is a famous pilgrimage destination. Travel safely with Reliable Rides.</p>
-<button onclick="book('Palani')" class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Book Now</button>
-</div>
-</div>
-
-<!-- BLACK THUNDER -->
-<div class="bg-white rounded shadow">
-<img src="https://source.unsplash.com/800x400/?themepark" class="w-full rounded-t">
-<div class="p-3">
-<h3 class="font-bold text-lg">Black Thunder</h3>
-<p class="text-sm">Enjoy family fun at Black Thunder. Book your Coimbatore taxi now.</p>
-<button onclick="book('Black Thunder')" class="mt-2 bg-red-600 text-white px-4 py-2 rounded">Book Now</button>
-</div>
-</div>
-
-</div>
-
-<!-- ADDRESS + MAP -->
-<div class="bg-white p-4 mt-4">
-<b>Address</b><br>
-286, DB Road, RS Puram,<br>
-Coimbatore – 641002
-</div>
-
-<div class="p-3 bg-white">
-<iframe width="100%" height="250" style="border:0" loading="lazy"
-src="https://www.google.com/maps?q=286%20DB%20Road%20RS%20Puram%20Coimbatore&output=embed"></iframe>
+<!-- MAP -->
+<div id="map" class="p-4">
+<iframe
+class="w-full h-64 rounded"
+src="https://maps.google.com/maps?q=286%20DB%20Road%20RS%20Puram%20Coimbatore&t=&z=15&ie=UTF8&iwloc=&output=embed">
+</iframe>
 </div>
 
 <!-- FOOTER -->
@@ -106,15 +78,17 @@ src="https://www.google.com/maps?q=286%20DB%20Road%20RS%20Puram%20Coimbatore&out
 © Reliable Rides Tours & Cab
 </div>
 
-<!-- FLOATING BUTTON -->
-<a href="tel:9043743777" class="fixed bottom-4 right-4 bg-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-xl">🚕</a>
+<!-- FLOAT BUTTONS -->
+<a href="tel:9043743777" class="fixed bottom-20 right-4 bg-red-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-xl">📞</a>
 
-<script>
-function book(place){
-let msg="Hello, I need taxi booking from Coimbatore to "+place;
-window.open("https://wa.me/919043743777?text="+encodeURIComponent(msg));
-}
-</script>
+<a href="https://wa.me/919043743777" class="fixed bottom-4 right-4 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-xl">💬</a>
 
-</body>
-</html>
+<!-- ABOUT -->
+<div id="about" class="hidden fixed inset-0 bg-black/50">
+<div class="bg-white m-6 p-4 rounded">
+<h3 class="font-bold">About Us</h3>
+<p>
+Reliable Rides Tours & Cab provides local and outstation taxi services in Coimbatore.
+We focus on safety, punctuality, and customer comfort.
+</p>
+<button onclick="hideAll()" class="mt-2 bg-red-600 text-white px-4 py-1">Close</
