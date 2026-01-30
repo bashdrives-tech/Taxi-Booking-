@@ -6,14 +6,13 @@
 <title>Reliable Rides Tours & Cab</title>
 
 <style>
+/* --- BASIC SETUP --- */
 body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding-bottom: 70px; }
 header { background: #d32f2f; color: white; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); font-size: 18px; letter-spacing: 1px; }
 
-/* HERO WITH HILL STATION SCENERY */
+/* --- HERO SECTION (Hill Station Background) --- */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('https://images.unsplash.com/photo-1621768216002-5ac171876625?q=80&w=1400&auto=format&fit=crop')
-    center/cover no-repeat;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1596005554384-d293674c91d7?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
     height: 260px;
     position: relative;
     color: white;
@@ -22,32 +21,66 @@ header { background: #d32f2f; color: white; padding: 15px; text-align: center; b
     justify-content: center;
     text-align: center;
 }
-
 .hero h1 { margin: 0; font-size: 28px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 .hero p { margin: 5px 0 20px 0; font-size: 16px; color: #f1f1f1; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); }
 .hero-btn { background: #fbc02d; color: black; padding: 10px 20px; text-decoration: none; border-radius: 25px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
 
+/* --- NAVIGATION --- */
 nav { display: flex; justify-content: center; background: white; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 50; }
 nav button {
     border: 1px solid #d32f2f; background: white; color: #d32f2f;
     padding: 8px 16px; border-radius: 20px; margin: 0 5px; font-size: 13px; font-weight: 600;
-    cursor: pointer;
+    cursor: pointer; transition: 0.3s;
 }
-nav button.active { background:#d32f2f;color:white }
+nav button:hover, nav button.active { background: #d32f2f; color: white; }
 
+/* --- GENERAL SECTIONS --- */
 section { padding: 15px; max-width: 600px; margin: auto; }
 .card { background: white; padding: 15px; margin-bottom: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; }
-.btn { background: #d32f2f; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; }
+/* --- INPUTS & BUTTONS --- */
+input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
+.btn { background: #d32f2f; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 5px; }
 .whatsapp { background: #25d366; margin-top: 10px; }
 
-.float { position: fixed; bottom: 0; width: 100%; display: flex; }
-.float a { flex: 1; text-align: center; padding: 15px; color: white; text-decoration: none; font-weight: bold; }
-.call { background: #fbc02d; color:black }
-.wa { background: #25d366 }
+/* --- TOURIST SPOT CARDS (New Design) --- */
+.spot-card {
+    height: 220px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.spot-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0));
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.spot-overlay h3 { margin: 0 0 5px 0; font-size: 22px; text-shadow: 1px 1px 2px black; }
+.spot-overlay p { margin: 0 0 10px 0; font-size: 12px; opacity: 0.9; line-height: 1.4; }
+.book-now-btn {
+    background: #d32f2f; color: white; border: none;
+    padding: 6px 15px; border-radius: 20px; font-size: 12px; font-weight: bold;
+    cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+}
 
-.fare-row { display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #eee }
+/* --- FIXED FOOTER --- */
+.float { position: fixed; bottom: 0; width: 100%; display: flex; z-index: 100; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
+.float a { flex: 1; text-align: center; padding: 15px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; }
+.call { background: #fbc02d; color: black; }
+.wa { background: #25d366; }
+
+/* --- FARE TABLE --- */
+.fare-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+.fare-row:last-child { border-bottom: none; }
 </style>
 </head>
 
@@ -56,7 +89,7 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 <header><b>Reliable Rides</b></header>
 
 <div class="hero">
-    <div>
+    <div class="heroContent">
         <h1>Reliable Rides<br>Tours & Cabs</h1>
         <p>Taxi Service in Coimbatore • Safe • On-Time</p>
         <a href="tel:9043743777" class="hero-btn">📞 Call 9043743777</a>
@@ -64,63 +97,183 @@ input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; borde
 </div>
 
 <nav>
-<button onclick="show('home')" id="btn-home" class="active">Coimbatore</button>
-<button onclick="show('spots')" id="btn-spots">Tourist Spots</button>
-<button onclick="show('fares')" id="btn-fares">Fares</button>
+    <button onclick="show('home')" id="btn-home" class="active">Coimbatore</button>
+    <button onclick="show('spots')" id="btn-spots">Tourist Spots</button>
+    <button onclick="show('fares')" id="btn-fares">Fares</button>
 </nav>
 
 <div id="home">
-<section>
-<div class="card">
-<h3 style="color:#d32f2f">Quick Fare Estimate</h3>
-<input id="name" placeholder="Your Name">
-<input id="phone" placeholder="Phone Number">
-<input id="pick" placeholder="Pickup Location">
-<input id="drop" placeholder="Drop Location">
-<input id="km" placeholder="Approx KM">
-<button class="btn" onclick="estimate()">Estimate Fare</button>
-<p id="fare" style="text-align:center;font-weight:bold"></p>
-<button class="btn whatsapp" onclick="sendWA()">Send WhatsApp Inquiry</button>
-</div>
-</section>
+    <section>
+        <div class="card">
+            <h3 style="margin-top:0;color:#d32f2f">Quick Fare Estimate</h3>
+            <input id="name" placeholder="Your Name">
+            <input id="phone" placeholder="Phone Number" type="tel">
+            <input id="pick" placeholder="Pickup Location">
+            <input id="drop" placeholder="Drop Location">
+            <input id="km" placeholder="Approx KM (e.g., 10)">
+            <button class="btn" onclick="estimate()">Estimate Fare</button>
+            <p id="fare" style="text-align:center;font-weight:bold;margin:15px 0;color:#333;font-size:18px"></p>
+            <button class="btn whatsapp" onclick="sendWA()">Send WhatsApp Inquiry</button>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-top:0">Office Address</h3>
+            <p style="color:#555;line-height:1.6">
+                286, DB Road, RS Puram,<br>
+                Coimbatore – 641002<br>
+                <strong>📞 9043743777</strong>
+            </p>
+        </div>
+
+        <div class="card" style="padding:0;overflow:hidden">
+            <iframe src="https://maps.google.com/maps?q=RS+Puram+Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen></iframe>
+        </div>
+    </section>
 </div>
 
-<div id="spots" style="display:none"><section></section></div>
+<div id="spots" style="display:none">
+    <section>
+        
+        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1544634076-a90160ccdca9?q=80&w=800&auto=format&fit=crop')">
+            <div class="spot-overlay">
+                <h3>Ooty</h3>
+                <p>Rose Garden • Botanical Garden • Ooty Lake • Doddabetta Peak</p>
+                <button class="book-now-btn" onclick="bookSpot('Ooty')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1582555620953-61405e608027?q=80&w=800&auto=format&fit=crop')">
+            <div class="spot-overlay">
+                <h3>Isha Yoga Center</h3>
+                <p>Adiyogi Statue • Dhyanalinga • Velliangiri Mountains</p>
+                <button class="book-now-btn" onclick="bookSpot('Isha Yoga')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1627387258934-8c460d402120?q=80&w=800&auto=format&fit=crop')">
+            <div class="spot-overlay">
+                <h3>Coonoor</h3>
+                <p>Sim's Park • Dolphin Nose • Nilgiri Mountain Railway</p>
+                <button class="book-now-btn" onclick="bookSpot('Coonoor')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1587321152367-5d3c90710609?q=80&w=800&auto=format&fit=crop')">
+            <div class="spot-overlay">
+                <h3>Kodaikanal</h3>
+                <p>Kodai Lake • Pillar Rocks • Coaker's Walk • Silver Cascade Falls</p>
+                <button class="book-now-btn" onclick="bookSpot('Kodaikanal')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1591024328562-b13182855b34?q=80&w=800&auto=format&fit=crop')">
+            <div class="spot-overlay">
+                <h3>Munnar</h3>
+                <p>Tea Museum • Mattupetty Dam • Eravikulam National Park</p>
+                <button class="book-now-btn" onclick="bookSpot('Munnar')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="spot-card" style="background-image: url('https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=800&auto=format&fit=crop')">
+            <div class="spot-overlay">
+                <h3>Valparai</h3>
+                <p>Aliyar Dam • Loam's View Point • Monkey Falls</p>
+                <button class="book-now-btn" onclick="bookSpot('Valparai')">Book Now</button>
+            </div>
+        </div>
+
+    </section>
+</div>
 
 <div id="fares" style="display:none">
-<section>
-<div class="card">
-<div class="fare-row"><span>Isha Yoga</span><b>₹1100</b></div>
-<div class="fare-row"><span>Pollachi</span><b>₹1500</b></div>
-<div class="fare-row"><span>Palakkad</span><b>₹1800</b></div>
-</div>
-</section>
+    <section>
+        <div class="card">
+            <h3 style="color:#d32f2f">Outstation Tariff</h3>
+            <p><strong>₹14 per KM</strong><br>
+            + ₹400 Driver Beta / Day<br>
+            <small style="color:#777">(Toll & Parking charges extra)</small></p>
+        </div>
+
+        <div class="card">
+            <h3 style="color:#d32f2f; margin-bottom:15px">One Way Drops (Fixed)</h3>
+            <div class="fare-row"><span>Annur</span><b>₹1100</b></div>
+            <div class="fare-row"><span>Isha Yoga</span><b>₹1100</b></div>
+            <div class="fare-row"><span>Anaikatti</span><b>₹1200</b></div>
+            <div class="fare-row"><span>Mettupalayam</span><b>₹1300</b></div>
+            <div class="fare-row"><span>Palladam</span><b>₹1300</b></div>
+            <div class="fare-row"><span>Sirumugai</span><b>₹1400</b></div>
+            <div class="fare-row"><span>Avinashi</span><b>₹1500</b></div>
+            <div class="fare-row"><span>Pollachi</span><b>₹1500</b></div>
+            <div class="fare-row"><span>Palakkad</span><b>₹1800</b></div>
+            <div class="fare-row"><span>Tiruppur</span><b>₹1900</b></div>
+        </div>
+    </section>
 </div>
 
 <div class="float">
-<a class="call" href="tel:9043743777">📞 Call</a>
-<a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
+    <a class="call" href="tel:9043743777">📞 Call Now</a>
+    <a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
 </div>
 
 <script>
+// --- NAVIGATION LOGIC ---
 function show(id){
-home.style.display='none';spots.style.display='none';fares.style.display='none';
-btn-home.classList.remove('active');btn-spots.classList.remove('active');btn-fares.classList.remove('active');
-document.getElementById(id).style.display='block';
-document.getElementById('btn-'+id).classList.add('active');
-window.scrollTo(0,0);
+    // Hide all sections
+    document.getElementById('home').style.display='none';
+    document.getElementById('spots').style.display='none';
+    document.getElementById('fares').style.display='none';
+    
+    // Reset buttons
+    document.getElementById('btn-home').classList.remove('active');
+    document.getElementById('btn-spots').classList.remove('active');
+    document.getElementById('btn-fares').classList.remove('active');
+
+    // Show active section & highlight button
+    document.getElementById(id).style.display='block';
+    document.getElementById('btn-'+id).classList.add('active');
+    
+    window.scrollTo(0,0);
 }
 
+// --- FARE ESTIMATION LOGIC ---
 function estimate(){
-let km=parseFloat(document.getElementById("km").value);
-if(!km){fare.innerHTML="Enter KM";return;}
-let base=(km<=10)?60:80;
-fare.innerHTML="Approx Fare ₹"+(Math.round(km*25)+base);
+    let km = parseFloat(document.getElementById("km").value);
+    if(!km){
+        document.getElementById("fare").innerHTML = "Please enter valid KM";
+        return;
+    }
+
+    // Logic: 
+    // IF km <= 10 THEN Base Fare = 60
+    // IF km > 10  THEN Base Fare = 80
+    let baseFare = (km <= 10) ? 60 : 80;
+
+    // Total = (KM * 25) + Base Fare
+    let f = Math.round(km * 25) + baseFare; 
+
+    document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
 }
 
+// --- WHATSAPP INQUIRY ---
 function sendWA(){
-let t=`Name:${name.value}%0aPhone:${phone.value}%0aPickup:${pick.value}%0aDrop:${drop.value}`;
-window.open("https://wa.me/919043743777?text="+t);
+    let n = document.getElementById("name").value;
+    let p = document.getElementById("phone").value;
+    let pick = document.getElementById("pick").value;
+    let drop = document.getElementById("drop").value;
+
+    if(n === "" || p === "") {
+        alert("Please fill Name and Phone");
+        return;
+    }
+
+    let t = `*New Inquiry via Website*%0aName: ${n}%0aPhone: ${p}%0aPickup: ${pick}%0aDrop: ${drop}`;
+    window.open("https://wa.me/919043743777?text="+t, '_blank');
+}
+
+// --- BOOK SPOT BUTTON ---
+function bookSpot(spotName){
+    let t = `*I am interested in booking a trip to ${spotName}*`;
+    window.open("https://wa.me/919043743777?text="+t, '_blank');
 }
 </script>
 
