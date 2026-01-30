@@ -6,41 +6,73 @@
 <title>Reliable Rides Tours & Cab</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
-header{background:#d32f2f;color:white;padding:12px}
+/* Basic Setup */
+body{margin:0;font-family:Arial, sans-serif;background:#f5f5f5}
+header{background:#d32f2f;color:white;padding:12px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
 
+/* Hero Section - Updated for Indian Feel */
 .hero{
-background:url('https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg') center/cover no-repeat;
-height:220px;
+/* Image of an Indian Road Trip/Highway context */
+background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1617201835748-0d17d120a175?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+height:240px;
 position:relative;
 color:white;
-}
-
-.heroOverlay{
-position:absolute;inset:0;
-background:rgba(0,0,0,.45);
 display:flex;
-flex-direction:column;
+align-items:center;
 justify-content:center;
-padding:20px;
+text-align:center;
 }
 
-nav button{border:1px solid #d32f2f;background:white;color:#d32f2f;padding:6px 12px;border-radius:20px;margin:3px}
+.heroContent h2{margin:0 0 5px 0;font-size:24px;}
+.heroContent p{margin:5px 0 15px 0;font-size:14px;opacity:0.9}
+.heroContent a{
+background:#fbc02d;
+color:black;
+padding:8px 16px;
+text-decoration:none;
+border-radius:20px;
+font-weight:bold;
+display:inline-block;
+}
 
-section{padding:15px}
-.card{background:white;padding:15px;margin:10px 0;border-radius:10px}
+/* Navigation */
+nav{display:flex;justify-content:center;background:white;padding:10px;box-shadow:0 2px 4px rgba(0,0,0,0.05)}
+nav button{
+border:1px solid #d32f2f;
+background:white;
+color:#d32f2f;
+padding:8px 15px;
+border-radius:20px;
+margin:0 5px;
+font-size:13px;
+cursor:pointer;
+transition:0.3s;
+}
+nav button:hover, nav button:active{background:#d32f2f;color:white}
 
-input{width:100%;padding:10px;margin:6px 0;border:1px solid #ccc;border-radius:6px}
+/* Layout */
+section{padding:15px;max-width:600px;margin:auto}
+.card{background:white;padding:15px;margin-bottom:15px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
 
-.btn{background:#d32f2f;color:white;padding:12px;border:none;width:100%;border-radius:6px}
-.whatsapp{background:#25d366}
+/* Inputs */
+input{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:6px;box-sizing:border-box}
 
-.float{position:fixed;bottom:0;width:100%;display:flex}
-.float a{flex:1;text-align:center;padding:15px;color:white;text-decoration:none}
+/* Buttons */
+.btn{background:#d32f2f;color:white;padding:12px;border:none;width:100%;border-radius:6px;font-size:16px;cursor:pointer;margin-top:5px}
+.whatsapp{background:#25d366;margin-top:10px}
+
+/* Images */
+img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-top:10px;margin-bottom:10px}
+
+/* Footer Float */
+.float{position:fixed;bottom:0;width:100%;display:flex;z-index:100}
+.float a{flex:1;text-align:center;padding:15px;color:white;text-decoration:none;font-weight:bold}
 .call{background:#fbc02d;color:black}
 .wa{background:#25d366}
 
-img{width:100%;border-radius:10px}
+/* Utility */
+h3{margin-top:0;color:#333}
+.location-tag{font-size:12px;color:#666;line-height:1.5}
 </style>
 </head>
 
@@ -49,113 +81,159 @@ img{width:100%;border-radius:10px}
 <header><b>Reliable Rides Tours & Cab</b></header>
 
 <div class="hero">
-<div class="heroOverlay">
+<div class="heroContent">
 <h2>Taxi Service in Coimbatore</h2>
 <p>Safe • On-Time • Comfortable</p>
-<a href="tel:9043743777" style="color:white;font-weight:bold">📞 9043743777</a>
+<a href="tel:9043743777">📞 Call 9043743777</a>
 </div>
 </div>
 
-<section>
 <nav>
 <button onclick="show('home')">Coimbatore</button>
 <button onclick="show('spots')">Tourist Spots</button>
 <button onclick="show('fares')">Fares</button>
 </nav>
-</section>
 
 <div id="home">
 <section>
-
 <div class="card">
 <h3>Quick Inquiry</h3>
 <input id="name" placeholder="Your Name">
-<input id="phone" placeholder="Phone Number">
+<input id="phone" placeholder="Phone Number" type="tel">
 <input id="pick" placeholder="Pickup Location">
 <input id="drop" placeholder="Drop Location">
-<input id="km" placeholder="Approx KM">
+<input id="km" placeholder="Approx KM (e.g., 10)">
 <button class="btn" onclick="estimate()">Estimate Fare</button>
-<p id="fare"></p>
+<p id="fare" style="text-align:center;font-weight:bold;margin:10px 0;color:#d32f2f"></p>
 <button class="btn whatsapp" onclick="sendWA()">Send WhatsApp Inquiry</button>
 </div>
 
 <div class="card">
 <h3>Office Address</h3>
+<p style="color:#555">
 286, DB Road,<br>
 RS Puram, Coimbatore – 641002<br>
-📞 9043743777
+<strong>📞 9043743777</strong>
+</p>
 </div>
 
-<iframe src="https://maps.google.com/maps?q=286%20DB%20Road%20RS%20Puram%20Coimbatore&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
-
+<div class="card" style="padding:0;overflow:hidden">
+<iframe src="https://maps.google.com/maps?q=RS+Puram+Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen></iframe>
+</div>
 </section>
 </div>
 
 <div id="fares" style="display:none">
 <section>
+<div class="card">
+<h3>Outstation Tariff</h3>
+<p><strong>₹14 per KM</strong><br>
++ ₹400 Driver Beta / Day<br>
+<small>(Toll & Parking charges extra)</small></p>
+</div>
 
 <div class="card">
-<b>Outstation Fare</b><br><br>
-₹14 per KM + ₹400 Driver Beta<br>
-Toll & Parking Extra
+<h3>One Way Drops (Fixed)</h3>
+<table width="100%" style="border-collapse:collapse;color:#444">
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Annur</td><td align="right"><b>₹1100</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Isha Yoga</td><td align="right"><b>₹1100</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Anaikatti</td><td align="right"><b>₹1200</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Mettupalayam</td><td align="right"><b>₹1300</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Palladam</td><td align="right"><b>₹1300</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Sirumugai</td><td align="right"><b>₹1400</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Avinashi</td><td align="right"><b>₹1500</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Pollachi</td><td align="right"><b>₹1500</b></td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #eee">Palakkad</td><td align="right"><b>₹1800</b></td></tr>
+<tr><td style="padding:8px">Tiruppur</td><td align="right"><b>₹1900</b></td></tr>
+</table>
 </div>
-
-<div class="card"><b>Fixed One Way Fares</b><br><br>
-Annur – ₹1100<br>
-Isha Yoga – ₹1100<br>
-Anaikatti – ₹1200<br>
-Mettupalayam – ₹1300<br>
-Palladam – ₹1300<br>
-Sirumugai – ₹1400<br>
-Avinashi – ₹1500<br>
-Pollachi – ₹1500<br>
-Tiruppur – ₹1900<br>
-Palakkad – ₹1800<br>
-</div>
-
 </section>
 </div>
 
 <div id="spots" style="display:none">
 <section>
 
-<div class="card"><h3>Ooty</h3><img src="https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg">Rose Garden • Botanical Garden • Ooty Lake • Doddabetta</div>
+<div class="card">
+<h3>Ooty</h3>
+<img src="https://images.unsplash.com/photo-1544634076-a90160ccdca9?q=80&w=600&auto=format&fit=crop" alt="Ooty">
+<div class="location-tag">Rose Garden • Botanical Garden • Ooty Lake • Doddabetta</div>
+</div>
 
-<div class="card"><h3>Isha Yoga</h3><img src="https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg">Adiyogi • Dhyanalinga</div>
+<div class="card">
+<h3>Isha Yoga Center</h3>
+<img src="https://images.unsplash.com/photo-1582555620953-61405e608027?q=80&w=600&auto=format&fit=crop" alt="Isha Yoga">
+<div class="location-tag">Adiyogi Statue • Dhyanalinga • Velliangiri Mountains</div>
+</div>
 
-<div class="card"><h3>Coonoor</h3><img src="https://images.pexels.com/photos/775201/pexels-photo-775201.jpeg">Tea Gardens • Dolphin Nose</div>
+<div class="card">
+<h3>Coonoor</h3>
+<img src="https://images.unsplash.com/photo-1627387258934-8c460d402120?q=80&w=600&auto=format&fit=crop" alt="Coonoor">
+<div class="location-tag">Sim's Park • Dolphin Nose • Nilgiri Mountain Railway</div>
+</div>
 
-<div class="card"><h3>Kodaikanal</h3><img src="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg">Lake • Pillar Rocks</div>
+<div class="card">
+<h3>Kodaikanal</h3>
+<img src="https://images.unsplash.com/photo-1587321152367-5d3c90710609?q=80&w=600&auto=format&fit=crop" alt="Kodaikanal">
+<div class="location-tag">Kodai Lake • Pillar Rocks • Coaker's Walk</div>
+</div>
 
-<div class="card"><h3>Munnar</h3><img src="https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg">Tea Estates</div>
+<div class="card">
+<h3>Munnar</h3>
+<img src="https://images.unsplash.com/photo-1591024328562-b13182855b34?q=80&w=600&auto=format&fit=crop" alt="Munnar">
+<div class="location-tag">Tea Museum • Mattupetty Dam • Eravikulam National Park</div>
+</div>
 
-<div class="card"><h3>Valparai</h3><img src="https://images.pexels.com/photos/2387873/pexels-photo-2387873.jpeg">Aliyar Dam • Tea Estates</div>
+<div class="card">
+<h3>Valparai</h3>
+<img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?q=80&w=600&auto=format&fit=crop" alt="Valparai">
+<div class="location-tag">Aliyar Dam • Loam's View Point • Monkey Falls</div>
+</div>
 
 </section>
 </div>
 
-<div class="float">
-<a class="call" href="tel:9043743777">Call</a>
-<a class="wa" href="https://wa.me/919043743777">WhatsApp</a>
+<div style="height:60px"></div> <div class="float">
+<a class="call" href="tel:9043743777">📞 Call Now</a>
+<a class="wa" href="https://wa.me/919043743777">💬 WhatsApp</a>
 </div>
 
 <script>
+// Tab Switching Logic
 function show(id){
-home.style.display='none';
-spots.style.display='none';
-fares.style.display='none';
+document.getElementById('home').style.display='none';
+document.getElementById('spots').style.display='none';
+document.getElementById('fares').style.display='none';
 document.getElementById(id).style.display='block';
+window.scrollTo(0,0);
 }
 
+// Fare Estimation Logic
 function estimate(){
-let km=document.getElementById("km").value;
-let f=(km*25)+80;
-document.getElementById("fare").innerHTML="Approx Fare ₹"+f;
+let km = parseFloat(document.getElementById("km").value);
+if(!km){
+document.getElementById("fare").innerHTML = "Please enter valid KM";
+return;
+}
+// Logic: 25 per km approx calculation for estimation
+let f = Math.round(km * 25); 
+if(f < 150) f = 150; // Minimum fare logic
+document.getElementById("fare").innerHTML = "Approx Fare: ₹" + f;
 }
 
+// WhatsApp Sending Logic
 function sendWA(){
-let t=`Name:${name.value}%0aPhone:${phone.value}%0aPickup:${pick.value}%0aDrop:${drop.value}`;
-window.open("https://wa.me/919043743777?text="+t);
+let n = document.getElementById("name").value;
+let p = document.getElementById("phone").value;
+let pick = document.getElementById("pick").value;
+let drop = document.getElementById("drop").value;
+
+if(n === "" || p === "") {
+alert("Please fill Name and Phone");
+return;
+}
+
+let t = `*New Inquiry via Website*%0aName: ${n}%0aPhone: ${p}%0aPickup: ${pick}%0aDrop: ${drop}`;
+window.open("https://wa.me/919043743777?text="+t, '_blank');
 }
 </script>
 
