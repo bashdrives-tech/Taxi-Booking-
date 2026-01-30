@@ -3,76 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reliable Rides Cab Service</title>
+<title>Reliable Rides Tours & Cabs</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#eaf3f3;
-}
-
-.hero{
-background:#444;
-color:white;
-text-align:center;
-padding:40px 15px;
-}
-
-.btn{
-display:block;
-width:80%;
-margin:15px auto;
-padding:15px;
-border-radius:30px;
-color:white;
-font-size:18px;
-text-decoration:none;
-}
-
+body{margin:0;font-family:Arial;background:#f2f5f7;}
+.hero{text-align:center;background:#333;color:white;padding:30px 15px;}
+.btn{display:block;margin:10px auto;padding:14px;border-radius:25px;color:white;text-decoration:none;width:80%;}
 .call{background:#1877f2;}
 .whatsapp{background:#25d366;}
-
-.form{
-background:white;
-margin:20px;
-padding:20px;
-border-radius:15px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
-.submit{
-background:#ff9800;
-border:none;
-color:white;
-padding:15px;
-width:100%;
-border-radius:25px;
-font-size:18px;
-}
-
-.bottom{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-}
-
-.bottom a{
-flex:1;
-text-align:center;
-padding:15px;
-color:white;
-text-decoration:none;
-}
-
+.form{background:white;margin:15px;padding:15px;border-radius:15px;}
+input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;}
+.submit{background:#ff9800;border:none;color:white;padding:15px;width:100%;border-radius:25px;font-size:16px;}
+h2{text-align:center;margin-top:20px;}
+.tours{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;}
+.card{background:white;border-radius:12px;overflow:hidden;text-align:center;}
+.card img{width:100%;height:120px;object-fit:cover;}
+.book{display:block;background:#25d366;color:white;padding:10px;text-decoration:none;}
+.bottom{position:fixed;bottom:0;width:100%;display:flex;}
+.bottom a{flex:1;text-align:center;padding:15px;color:white;text-decoration:none;}
 .yellow{background:#fbc02d;color:black;}
 .green{background:#25d366;}
 </style>
@@ -81,9 +29,8 @@ text-decoration:none;
 <body>
 
 <div class="hero">
-<h1>Reliable Rides Cab Service</h1>
-<p>Coimbatore • Airport • Railway • Isha Yoga</p>
-
+<h1>Reliable Rides Tours & Cabs</h1>
+<p>Coimbatore • Airport • Railway • Hill Stations • Kerala Trips</p>
 <a class="btn call" href="tel:9043743777">📞 Call Now</a>
 <a class="btn whatsapp" href="https://wa.me/919043743777">💬 WhatsApp</a>
 </div>
@@ -93,8 +40,29 @@ text-decoration:none;
 <input id="mobile" placeholder="Mobile Number">
 <input id="pickup" placeholder="Pickup Location">
 <input id="drop" placeholder="Drop Location">
-
 <button class="submit" onclick="sendBooking()">Book via WhatsApp</button>
+</div>
+
+<h2>Popular Tour Packages</h2>
+
+<div class="tours">
+
+<div class="card"><img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2"><h3>Ooty</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Ooty%20Tour">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1600353063506-3d4d1cfd6f45"><h3>Coonoor</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Coonoor%20Tour">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1586015559302-d2f95a1a33e3"><h3>Munnar</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Munnar%20Tour">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1591185038189-1c807d4fbb10"><h3>Valparai</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Valparai%20Tour">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"><h3>Kodaikanal</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Kodaikanal%20Tour">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1594270892415-f6f1d3f3a1c0"><h3>Isha Yoga</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Isha%20Trip">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1601758003122-78c654d0f9b3"><h3>Athirappilly Falls</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Athirappilly%20Tour">Book</a></div>
+
+<div class="card"><img src="https://images.unsplash.com/photo-1587474260584-136574528ed5"><h3>Cochin</h3><a class="book" href="https://wa.me/919043743777?text=Need%20Cochin%20Tour">Book</a></div>
+
 </div>
 
 <div class="bottom">
@@ -109,6 +77,17 @@ var phone=document.getElementById("mobile").value;
 var pickup=document.getElementById("pickup").value;
 var drop=document.getElementById("drop").value;
 
+var msg="Booking:%0AName:"+name+
+"%0AMobile:"+phone+
+"%0APickup:"+pickup+
+"%0ADrop:"+drop;
+
+window.open("https://wa.me/919043743777?text="+msg);
+}
+</script>
+
+</body>
+</html>
 var msg="Taxi Booking:%0AName:"+name+
 "%0AMobile:"+phone+
 "%0APickup:"+pickup+
